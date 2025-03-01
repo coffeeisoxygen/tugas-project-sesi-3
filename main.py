@@ -10,6 +10,7 @@ import os
 from typing import Optional
 
 from booleantype import BooleanType
+from colors import Colors
 from listtype import ListType
 from numerictype import NumericType
 from tekstype import TextType
@@ -29,15 +30,15 @@ def print_separator():
 def display_menu():
     """Menampilkan menu utama"""
     clear_screen()
-    print("=== PENJELASAN TIPE DATA PYTHON ===")
-    print("Pilih tipe data untuk dipelajari:")
-    print("1. Boolean")
-    print("2. String")
-    print("3. Integer")
-    print("4. Float")
-    print("5. Complex")
-    print("6. List")  # Tipe data baru
-    print("0. Keluar")
+    print(Colors.title("=== PENJELASAN TIPE DATA PYTHON ==="))
+    print(Colors.subtitle("Pilih tipe data untuk dipelajari:"))
+    print("1. " + Colors.highlight("Boolean"))
+    print("2. " + Colors.highlight("String"))
+    print("3. " + Colors.highlight("Integer"))
+    print("4. " + Colors.highlight("Float"))
+    print("5. " + Colors.highlight("Complex"))
+    print("6. " + Colors.highlight("List"))
+    print("0. " + Colors.highlight("Keluar"))
 
 
 def get_data_type(choice: str) -> Optional[tipedata]:
@@ -61,13 +62,26 @@ def get_data_type(choice: str) -> Optional[tipedata]:
 def show_data_type_info(data_type: tipedata):
     """Menampilkan informasi tipe data"""
     clear_screen()
-    print(f"=== {data_type.name.upper()} ===")
+    print(Colors.title(f"=== {data_type.name.upper()} ==="))
     print_separator()
-    print(data_type.get_info())
+
+    # Informasi dasar
+    info = data_type.get_info().split("\n")
+    print(Colors.subtitle(info[0]))
+    print(info[1])
+
     print_separator()
-    print(data_type.show_example())
+
+    # Contoh kode
+    print(Colors.subtitle("Contoh:"))
+    example = data_type.show_example().replace("Contoh:\n", "")
+    print(Colors.code(example))
+
     print_separator()
-    print(data_type.common_operations())
+
+    # Operasi umum
+    print(Colors.subtitle("Operasi Umum:"))
+    print(data_type.common_operations().replace("Operasi", "").strip())
 
     input("\nTekan Enter untuk kembali ke menu utama...")
 
