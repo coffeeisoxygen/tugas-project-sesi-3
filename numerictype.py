@@ -20,12 +20,26 @@ class NumericType(tipedata):
                 "Merepresentasikan berbagai jenis angka (int, float, complex)",
             )
 
-    def show_example(self):
+    def show_example(self) -> str:
         if self.name == "Integer":
-            print("Contoh:\na = 10\nb = -5\nc = 0")
+            return "Contoh:\na = 10\nb = -5\nc = 0"
         elif self.name == "Float":
-            print("Contoh:\na = 10.5\nb = -3.14\nc = 0.0")
+            return "Contoh:\na = 10.5\nb = -3.14\nc = 0.0"
         elif self.name == "Complex":
-            print("Contoh:\na = 3+4j\nb = complex(3, 4)")
+            return "Contoh:\na = 3+4j\nb = complex(3, 4)"
         else:
-            print("Lihat tipe numerik spesifik untuk contohnya")
+            return "Lihat tipe numerik spesifik untuk contohnya"
+
+    def common_operations(self) -> str:
+        if self.name == "Integer" or self.name == "Float":
+            return """Operasi numerik:
+- Aritmatika: +, -, *, /, //, %, **
+- Perbandingan: ==, !=, <, >, <=, >=
+- Metode: abs(), round()"""
+        elif self.name == "Complex":
+            return """Operasi bilangan kompleks:
+- Aritmatika: +, -, *, /
+- Atribut: real, imag
+- Metode: conjugate()"""
+        else:
+            return "Lihat tipe numerik spesifik untuk operasinya"
