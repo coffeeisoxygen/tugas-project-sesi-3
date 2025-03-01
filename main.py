@@ -11,10 +11,12 @@ from typing import Optional
 
 from booleantype import BooleanType
 from colors import Colors
+from dicttype import DictType
 from listtype import ListType
 from numerictype import NumericType
 from tekstype import TextType
 from tipedata import tipedata
+from tupletype import TupleType
 
 
 def clear_screen():
@@ -38,6 +40,8 @@ def display_menu():
     print("4. " + Colors.highlight("Float"))
     print("5. " + Colors.highlight("Complex"))
     print("6. " + Colors.highlight("List"))
+    print("7. " + Colors.highlight("Tuple"))
+    print("8. " + Colors.highlight("Dictionary"))
     print("0. " + Colors.highlight("Keluar"))
 
 
@@ -55,6 +59,10 @@ def get_data_type(choice: str) -> Optional[tipedata]:
         return NumericType("complex")
     elif choice == "6":
         return ListType()  # Tipe data baru
+    elif choice == "7":
+        return TupleType()
+    elif choice == "8":
+        return DictType()
     else:
         return None
 
