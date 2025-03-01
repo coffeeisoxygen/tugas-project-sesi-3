@@ -1,12 +1,16 @@
-# Ahmad Hasan Maki
-# 20240040032
-# 085777076575
+# Dosenn : Shinta Ayuningtias, S.Kom., M.Kom
+# Mata Kuliah : Dasar Pemerograman
+# Mahasiswa : Ahmad Hasan Maki
+# Nim : 20240040032
+# Telp : 085777076575
+# Kelas : TI24B
+# Pertemuan : 6
 
 import os
 from typing import Optional
 
 from booleantype import BooleanType
-from listtype import ListType  # Tipe data baru
+from listtype import ListType
 from numerictype import NumericType
 from tekstype import TextType
 from tipedata import tipedata
