@@ -58,7 +58,7 @@ def get_data_type(choice: str) -> Optional[tipedata]:
     elif choice == "5":
         return NumericType("complex")
     elif choice == "6":
-        return ListType()  # Tipe data baru
+        return ListType()
     elif choice == "7":
         return TupleType()
     elif choice == "8":
@@ -97,7 +97,7 @@ def show_data_type_info(data_type: tipedata):
 def main():
     while True:
         display_menu()
-        choice = input("\nMasukkan pilihan Anda (0-6): ")
+        choice = input("\nMasukkan pilihan Anda (0-8): ")
 
         if choice == "0":
             clear_screen()
