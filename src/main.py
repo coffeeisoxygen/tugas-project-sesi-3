@@ -9,14 +9,36 @@
 import os
 from typing import Optional
 
-from booleantype import BooleanType
-from colors import Colors
-from dicttype import DictType
-from listtype import ListType
-from numerictype import NumericType
-from tekstype import TextType
-from tipedata import tipedata
-from tupletype import TupleType
+from src.tipedata.booleantype import BooleanType
+from src.tipedata.dicttype import DictType
+from src.tipedata.listtype import ListType
+from src.tipedata.numerictype import NumericType
+from src.tipedata.tekstype import TextType
+from src.tipedata.tipedata import tipedata
+from src.tipedata.tupletype import TupleType
+from src.utils.colors import Colors
+
+
+def show_version_info():
+    print(Colors.subtitle("Versi: 1.0.0"))
+    print(Colors.subtitle("© 2024 Ahmad Hasan Maki"))
+
+
+def confirm_exit() -> bool:
+    while True:
+        answer = input("Anda yakin ingin keluar? (y/n): ").lower()
+        if answer in ("y", "n"):
+            return answer == "y"
+
+
+def show_loading():
+    import time
+
+    print(Colors.colorize("Loading", Colors.BRIGHT_CYAN), end="")
+    for _ in range(3):
+        time.sleep(0.2)
+        print(Colors.colorize(".", Colors.BRIGHT_CYAN), end="", flush=True)
+    print()
 
 
 def clear_screen():
@@ -101,7 +123,7 @@ def main():
 
         if choice == "0":
             clear_screen()
-            print("Terima kasih telah menggunakan Penjelasan Tipe Data Python!")
+            print("Terima kasih!")
             break
 
         data_type = get_data_type(choice)

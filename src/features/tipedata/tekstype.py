@@ -1,4 +1,4 @@
-from tipedata import tipedata
+from tipedata.tipedata import tipedata
 
 
 class TextType(tipedata):
